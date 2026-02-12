@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Optional, Dict
 from contextlib import asynccontextmanager
 from uuid import uuid4
-from fastapi import FastAPI, UploadFile, File, HTTPException, Query, BackgroundTasks
+from fastapi import FastAPI, UploadFile, File, HTTPException, Query
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
@@ -97,7 +97,6 @@ async def upload_video(
     every_n_frames: int = Query(SERVER_CONFIG["default_every_n_frames"]),
     user_id: Optional[str] = Query(None),
     notes: Optional[str] = Query(None),
-    background_tasks: BackgroundTasks = None,
 ):
     """
     Загрузить видео для обработки
@@ -168,8 +167,7 @@ async def upload_video(
         )
         
         # Запуск обработки в фоновом потоке
-        if background_tasks:
-            background_tasks.add_task(process_video_task, task_id)
+        threading.Thread(target=process_video_task, args=(task_id,), daemon=True).start()
         
         task = processing_queue.get_task(task_id)
         return {

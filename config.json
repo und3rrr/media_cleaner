@@ -4,7 +4,7 @@
     "comment": "Опции: 'auto' (выбрать автоматически), 'gpu' (принудительно GPU), 'cpu' (принудительно CPU)"
   },
   "ffmpeg": {
-    "path": "C:\\users\\user\\desktop\\media_cleaner\\ffmpeg\\ffmpeg\\bin\\ffmpeg.exe",
+    "path": "/usr/bin/ffmpeg",
     "timeout": 300,
     "quiet_mode": true
   },

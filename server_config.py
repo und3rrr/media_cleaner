@@ -3,6 +3,8 @@
 """
 
 import os
+import sys
+import json
 from pathlib import Path
 from typing import Dict
 
@@ -17,6 +19,21 @@ QUEUE_DB_FOLDER = SERVER_ROOT / "queue_db"
 # ──── СОЗДАНИЕ ПАПОК ──────────────────────────────────────────────────────
 for folder in [INPUT_FOLDER, OUTPUT_FOLDER, TEMP_FOLDER, LOGS_FOLDER, QUEUE_DB_FOLDER]:
     folder.mkdir(parents=True, exist_ok=True)
+
+# ──── ЗАГРУЗКА КОНФИГУРАЦИИ ──────────────────────────────────────────────────
+# Прочитаем config.json если существует
+_CONFIG_FILE = SERVER_ROOT / "config.json"
+
+_FFMPEG_PATH = "/usr/bin/ffmpeg"  # Linux/Unix
+
+if _CONFIG_FILE.exists():
+    try:
+        with open(_CONFIG_FILE, 'r', encoding='utf-8') as f:
+            _CONFIG_DATA = json.load(f)
+            _FFMPEG_PATH = _CONFIG_DATA.get('ffmpeg', {}).get('path', _FFMPEG_PATH)
+    except Exception as e:
+        import logging
+        logging.warning(f"Could not load config.json: {e}, using default ffmpeg path")
 
 # ──── КОНФИГУРАЦИЯ СЕРВЕРА ────────────────────────────────────────────────
 SERVER_CONFIG = {
@@ -45,7 +62,7 @@ SERVER_CONFIG = {
     
     # Параметры видео
     "supported_video_formats": {'.mp4', '.mov', '.avi', '.mkv', '.webm'},
-    "ffmpeg_path": r"C:\users\user\desktop\media_cleaner\ffmpeg\ffmpeg\bin\ffmpeg.exe",
+    "ffmpeg_path": _FFMPEG_PATH,
     
     # Очистка
     "auto_cleanup_days": 7,  # Удалять завершённые задачи старше N дней

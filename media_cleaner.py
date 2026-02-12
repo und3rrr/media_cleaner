@@ -29,9 +29,25 @@ import librosa
 import soundfile as sf
 from tqdm import tqdm
 
+# ──── ЗАГРУЗКА КОНФИГУРАЦИИ ──────────────────────────────────────────────────
+_SCRIPT_ROOT = Path(__file__).parent
+_CONFIG_FILE = _SCRIPT_ROOT / "config.json"
+# Выбираем fallback путь в зависимости от ОС
+
+_FFMPEG_PATH_DEFAULT = "/usr/bin/ffmpeg"  
+
+_FFMPEG_PATH = _FFMPEG_PATH_DEFAULT
+if _CONFIG_FILE.exists():
+    try:
+        with open(_CONFIG_FILE, 'r', encoding='utf-8') as f:
+            _CONFIG_DATA = json.load(f)
+            _FFMPEG_PATH = _CONFIG_DATA.get('ffmpeg', {}).get('path', _FFMPEG_PATH_DEFAULT)
+    except Exception as e:
+        print(f"Warning: Could not load config.json: {e}, using default ffmpeg path")
+
 # ──── КОНФИГУРАЦИЯ ────────────────────────────────────────────────────────────
 CONFIG = {
-    "ffmpeg_path": r"C:\users\user\desktop\media_cleaner\ffmpeg\ffmpeg\bin\ffmpeg.exe",
+    "ffmpeg_path": _FFMPEG_PATH,
     "epsilon_video": 0.120,  # Увеличено в 11 раз для более сильного шума (было 0.011)
     "epsilon_multiplier_strong": 1.8,  # Множитель для сильнейшей маскировки
     "num_eot_transforms": 4,  # Увеличено для лучшей robustness
