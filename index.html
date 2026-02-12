@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Cleaner - Защита видео от нейросетей</title>
+    <link rel="stylesheet" href="./static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        
+        <!-- ЗАГОЛОВОК -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <h1>Media Cleaner</h1>
+                </div>
+                <p class="tagline">Защита видео от нейросетей с помощью шумов</p>
+            </div>
+            
+            <!-- СТАТУС СЕРВЕРА -->
+            <div class="server-status">
+                <div id="serverIndicator" class="status-indicator online"></div>
+                <span id="serverText">
+                    🟢 Сервер online
+                </span>
+            </div>
+        </header>
+
+        <!-- ОСНОВНАЯ СЕТКА -->
+        <main class="main-grid">
+            
+            <!-- ЛЕВАЯ КОЛОНКА: ФОРМА ЗАГРУЗКИ -->
+            <div class="column column-upload">
+                <div class="card">
+                    <h2><i class="fas fa-upload"></i> Загрузка видео</h2>
+                    
+                    <!-- ЗОНА ПЕРЕТАСКИВАНИЯ -->
+                    <div class="drop-zone" id="dropZone">
+                        <div class="drop-content">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p class="drop-text">Перетащите видео сюда</p>
+                            <p class="drop-hint">или кликните для выбора</p>
+                        </div>
+                        <input type="file" id="fileInput" accept="video/*" style="display: none;">
+                    </div>
+                    
+                    <!-- ИНФОРМАЦИЯ О ФАЙЛЕ -->
+                    <div id="fileInfo" class="file-info" style="display: none;">
+                        <div class="file-item">
+                            <i class="fas fa-video"></i>
+                            <span id="fileName">Файл не выбран</span>
+                            <span id="fileSize" class="file-size">0 MB</span>
+                        </div>
+                        <button id="clearFile" class="btn-clear">
+                            <i class="fas fa-times"></i> Выбрать другое видео
+                        </button>
+                    </div>
+                    
+                    <!-- ПОЛОСА ПРОГРЕССА ЗАГРУЗКИ -->
+                    <div id="uploadProgress" style="display: none;">
+                        <div class="progress-bar">
+                            <div id="uploadProgressBar" class="progress-fill"></div>
+                        </div>
+                        <p id="uploadProgressText">Загрузка: 0%</p>
+                    </div>
+                    
+                </div>
+
+                <!-- ПАРАМЕТРЫ ОБРАБОТКИ -->
+                <div class="card">
+                    <h2><i class="fas fa-sliders-h"></i> Параметры обработки</h2>
+                    
+                    <div class="form-group">
+                        <label for="epsilon">Epsilon (сила возмущения)</label>
+                        <div class="param-input-group">
+                            <input type="range" id="epsilon" min="0.04" max="0.20" step="0.01" value="0.12" class="slider">
+                            <input type="number" id="epsilonValue" value="0.12" min="0.04" max="0.20" step="0.01" class="param-value">
+                        </div>
+                        <small>Диапазон: 0.04 - 0.20 (выше = сильнее шум)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="audioLevel">Уровень защиты аудио</label>
+                        <select id="audioLevel" class="form-control">
+                            <option value="отключено">Отключено</option>
+                            <option value="слабый" selected>Слабый</option>
+                            <option value="средний">Средний</option>
+                            <option value="сильный">Сильный</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="everyNFrames">Кадры (каждый N-й кадр)</label>
+                        <div class="param-input-group">
+                            <input type="range" id="everyNFrames" min="1" max="30" step="1" value="10" class="slider">
+                            <input type="number" id="everyNFramesValue" value="10" min="1" max="30" step="1" class="param-value">
+                        </div>
+                        <small>От 1 до 30 (выше = меньше обработка)</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="videoStrength">Сила видео эффекта</label>
+                        <div class="param-input-group">
+                            <input type="range" id="videoStrength" min="1.0" max="2.0" step="0.1" value="1.0" class="slider">
+                            <input type="number" id="videoStrengthValue" value="1.0" min="1.0" max="2.0" step="0.1" class="param-value">
+                        </div>
+                        <small>От 1.0 до 2.0</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="userId">Ваше имя (опционально)</label>
+                        <input type="text" id="userId" placeholder="Ваше имя или ID" class="form-control">
+                    </div>
+
+                    <button id="processBtn" class="btn btn-primary" disabled>
+                        <i class="fas fa-cog"></i> Начать обработку
+                    </button>
+                </div>
+            </div>
+
+            <!-- ПРАВАЯ КОЛОНКА: КОНСОЛЬ И СТАТУС -->
+            <div class="column column-console">
+                
+                <!-- СТАТУС ОБРАБОТКИ -->
+                <div class="card">
+                    <h2><i class="fas fa-info-circle"></i> Статус обработки</h2>
+                    
+                    <div id="noTask" class="status-message">
+                        <p>✨ Загрузите видео и нажмите "Начать обработку"</p>
+                    </div>
+                    
+                    <div id="taskStatus" style="display: none;">
+                        <!-- СТАТУС БАДЖ -->
+                        <div class="status-badge">
+                            <span class="badge" id="statusBadge">ОЖИДАНИЕ</span>
+                            <span id="taskIdDisplay" class="task-id">ID: </span>
+                        </div>
+
+                        <!-- ПРОГРЕСС -->
+                        <div class="progress-container">
+                            <div class="progress-info">
+                                <span id="progressLabel">Ожидание обработки...</span>
+                                <span id="progressPercent">0%</span>
+                            </div>
+                            <div class="progress-bar large">
+                                <div id="taskProgress" class="progress-fill" style="width: 0%"></div>
+                            </div>
+                        </div>
+
+                        <!-- ДЕТАЛЬ СТАТУСА -->
+                        <div id="statusDetails" class="status-details"></div>
+
+                        <!-- ДЕЙСТВИЯ -->
+                        <div class="action-buttons">
+                            <button id="cancelBtn" class="btn btn-danger" style="display: none;">
+                                <i class="fas fa-stop"></i> Отменить
+                            </button>
+                            <button id="downloadBtn" class="btn btn-success" style="display: none;">
+                                <i class="fas fa-download"></i> Скачать видео
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- КОНСОЛЬ ЛОГОВ -->
+                <div class="card">
+                    <h2><i class="fas fa-terminal"></i> Логи обработки</h2>
+                    <div id="console" class="console">
+                        <div class="console-line">
+                            <span class="console-time">[Live Server]</span>
+                            <span class="console-text">✨ Интерфейс загружен</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- ПОДВАЛ -->
+        <footer class="footer">
+            <p>© 2024 Media Cleaner | Защита видео от искусственного интеллекта</p>
+            <p>
+                <i class="fas fa-shield-alt"></i> Все данные обрабатываются локально
+                <i class="fas fa-lock"></i> Видео остается конфиденциальным
+            </p>
+        </footer>
+
+    </div>
+
+    <script src="./static/script.js"></script>
+</body>
+</html>

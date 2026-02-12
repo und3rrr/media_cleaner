@@ -1,0 +1,51 @@
+{
+  "device": {
+    "type": "auto",
+    "comment": "Опции: 'auto' (выбрать автоматически), 'gpu' (принудительно GPU), 'cpu' (принудительно CPU)"
+  },
+  "ffmpeg": {
+    "path": "C:\\users\\user\\desktop\\media_cleaner\\ffmpeg\\ffmpeg\\bin\\ffmpeg.exe",
+    "timeout": 300,
+    "quiet_mode": true
+  },
+  "video_processing": {
+    "epsilon": 0.060,
+    "epsilon_multiplier_strong": 1.8,
+    "num_eot_transforms": 4,
+    "default_every_n_frames": 10,
+    "max_frames_batch": 500,
+    "save_format": "png",
+    "codec": "libx264",
+    "pixel_format": "yuv420p",
+    "preset": "fast"
+  },
+  "audio_processing": {
+    "target_sr": 16000,
+    "high_freq_base": 17000,
+    "high_freq_amplitude": 0.0028,
+    "psychoacoustic_masking": true,
+    "levels": {
+      "очень слабый": 0.0020,
+      "слабый": 0.0035,
+      "средний": 0.0050,
+      "сильный": 0.0080
+    }
+  },
+  "supported_formats": [
+    ".mp4",
+    ".mov",
+    ".avi",
+    ".mkv",
+    ".webm"
+  ],
+  "logging": {
+    "level": "INFO",
+    "file": "imperceptible_protected_video.log",
+    "format": "%(asctime)s - %(levelname)s - %(message)s"
+  },
+  "cleanup": {
+    "auto_cleanup_temps": true,
+    "keep_frames": false,
+    "remove_on_error": true
+  }
+}

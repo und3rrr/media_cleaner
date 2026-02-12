@@ -1,0 +1,195 @@
+2026-02-11 16:07:45,040 - queue_processor - INFO - [server_video_worker.py:74] - [1/3] Обработка видео (кодирование на GPU)...
+2026-02-11 16:08:25,233 - queue_processor - INFO - [server_video_worker.py:92] - [2/3] Обработка аудио...
+2026-02-11 16:08:26,893 - queue_processor - INFO - [server_video_worker.py:100] - Применяю маскировку аудио уровня 'слабый'...
+2026-02-11 16:08:35,141 - queue_processor - INFO - [server_video_worker.py:119] - [3/3] Сборка видео через видеокарту...
+2026-02-11 16:08:39,598 - queue_processor - INFO - [server_video_worker.py:128] - Очистка временных файлов...
+2026-02-11 16:17:24,942 - queue_processor - INFO - [server_video_worker.py:74] - [1/3] Обработка видео (кодирование на GPU)...
+2026-02-11 16:18:03,972 - queue_processor - INFO - [server_video_worker.py:92] - [2/3] Обработка аудио...
+2026-02-11 16:18:04,642 - queue_processor - INFO - [server_video_worker.py:100] - Применяю маскировку аудио уровня 'слабый'...
+2026-02-11 16:18:08,549 - queue_processor - INFO - [server_video_worker.py:119] - [3/3] Сборка видео через видеокарту...
+2026-02-11 16:18:12,665 - queue_processor - INFO - [server_video_worker.py:128] - Очистка временных файлов...
+2026-02-11 16:36:01,778 - queue_processor - INFO - [queue_processor.py:142] - [OK] Task created: 570166c9 (video: 81aa8573_0b831ac4-7581-46cc-95bd-fda8d885dcd1.mp4)
+2026-02-11 16:36:01,781 - queue_processor - INFO - [server_video_worker.py:35] - [START] Processing task: 570166c9
+2026-02-11 16:36:01,782 - queue_processor - INFO - [server_video_worker.py:52] - [TASK] Input: C:\Users\User\Desktop\!\media_cleaner\videos_input\81aa8573_0b831ac4-7581-46cc-95bd-fda8d885dcd1.mp4
+2026-02-11 16:36:01,783 - queue_processor - INFO - [server_video_worker.py:53] - [TASK] Params: epsilon=0.12, strength=1.0, audio=слабый
+2026-02-11 16:36:01,903 - queue_processor - INFO - [server_video_worker.py:71] - [VIDEO] Parameters: 376 frames @ 30.0fps
+2026-02-11 16:36:01,904 - queue_processor - INFO - [server_video_worker.py:74] - [1/3] Video processing...
+2026-02-11 16:36:41,361 - queue_processor - INFO - [server_video_worker.py:88] - [OK] Processed 125 frames
+2026-02-11 16:36:41,362 - queue_processor - INFO - [server_video_worker.py:92] - [2/3] Audio processing...
+2026-02-11 16:36:43,057 - queue_processor - INFO - [server_video_worker.py:100] - [AUDIO] Masking level: слабый
+2026-02-11 16:36:47,049 - queue_processor - INFO - [server_video_worker.py:119] - [3/3] Video assembly...
+2026-02-11 16:36:51,991 - queue_processor - INFO - [server_video_worker.py:124] - [OK] Video assembled: C:\Users\User\Desktop\!\media_cleaner\videos_output\570166c9_81aa8573_0b831ac4-7581-46cc-95bd-fda8d885dcd1_protected.mp4
+2026-02-11 16:36:51,993 - queue_processor - INFO - [server_video_worker.py:128] - [CLEANUP] Clearing temp files...
+2026-02-11 16:36:52,096 - queue_processor - INFO - [server_video_worker.py:135] - [OK] Input removed: 81aa8573_0b831ac4-7581-46cc-95bd-fda8d885dcd1.mp4
+2026-02-11 16:36:52,096 - queue_processor - INFO - [server_video_worker.py:140] - [DONE] Task completed: 570166c9
+2026-02-11 17:03:32,399 - queue_processor - INFO - [queue_processor.py:143] - [OK] Task created: d628b5a2 (video: 31327243_0b831ac4-7581-46cc-95bd-fda8d885dcd1.mp4)
+2026-02-11 17:03:32,402 - queue_processor - INFO - [server_video_worker.py:35] - [START] Processing task: d628b5a2
+2026-02-11 17:03:32,404 - queue_processor - INFO - [server_video_worker.py:52] - [TASK] Input: C:\Users\User\Desktop\!\media_cleaner\videos_input\31327243_0b831ac4-7581-46cc-95bd-fda8d885dcd1.mp4
+2026-02-11 17:03:32,405 - queue_processor - INFO - [server_video_worker.py:53] - [TASK] Params: epsilon=0.04, strength=1.0, audio=слабый
+2026-02-11 17:03:32,580 - queue_processor - INFO - [server_video_worker.py:71] - [VIDEO] Parameters: 376 frames @ 30.0fps
+2026-02-11 17:03:32,581 - queue_processor - INFO - [server_video_worker.py:74] - [1/3] Video processing...
+2026-02-11 17:04:12,878 - queue_processor - INFO - [server_video_worker.py:91] - [OK] Processed 125 frames
+2026-02-11 17:04:12,879 - queue_processor - INFO - [server_video_worker.py:95] - [2/3] Audio processing...
+2026-02-11 17:04:13,871 - queue_processor - INFO - [server_video_worker.py:103] - [AUDIO] Masking level: слабый
+2026-02-11 17:04:17,998 - queue_processor - INFO - [server_video_worker.py:122] - [3/3] Video assembly...
+2026-02-11 17:04:21,906 - queue_processor - INFO - [server_video_worker.py:127] - [OK] Video assembled: C:\Users\User\Desktop\!\media_cleaner\videos_output\d628b5a2_31327243_0b831ac4-7581-46cc-95bd-fda8d885dcd1_protected.mp4
+2026-02-11 17:04:21,907 - queue_processor - INFO - [server_video_worker.py:131] - [CLEANUP] Clearing temp files...
+2026-02-11 17:04:21,994 - queue_processor - INFO - [server_video_worker.py:138] - [OK] Input removed: 31327243_0b831ac4-7581-46cc-95bd-fda8d885dcd1.mp4
+2026-02-11 17:04:21,994 - queue_processor - INFO - [server_video_worker.py:143] - [DONE] Task completed: d628b5a2
+2026-02-11 17:06:43,125 - queue_processor - INFO - [queue_processor.py:143] - [OK] Task created: 79d8f8ce (video: 8dce6ac1-4c54-41b0-a0d2-69166915e422_0b831ac4-7581-46cc-95bd-fda8d885dcd1.mp4)
+2026-02-11 17:06:43,126 - queue_processor - INFO - [server_video_worker.py:234] - [START] Metadata strip task: 79d8f8ce
+2026-02-11 17:06:43,129 - queue_processor - INFO - [server_video_worker.py:250] - [TASK] Stripping metadata: C:\Users\User\Desktop\!\media_cleaner\videos_input\8dce6ac1-4c54-41b0-a0d2-69166915e422_0b831ac4-7581-46cc-95bd-fda8d885dcd1.mp4
+2026-02-11 17:06:43,386 - queue_processor - INFO - [server_video_worker.py:269] - [OK] Metadata stripped: C:\Users\User\Desktop\!\media_cleaner\videos_output\79d8f8ce_8dce6ac1-4c54-41b0-a0d2-69166915e422_0b831ac4-7581-46cc-95bd-fda8d885dcd1_cleaned.mp4
+2026-02-11 17:06:43,388 - queue_processor - INFO - [server_video_worker.py:275] - [OK] Input removed: 8dce6ac1-4c54-41b0-a0d2-69166915e422_0b831ac4-7581-46cc-95bd-fda8d885dcd1.mp4
+2026-02-11 17:06:43,389 - queue_processor - INFO - [server_video_worker.py:277] - [DONE] Metadata task completed: 79d8f8ce
+2026-02-11 17:07:24,036 - queue_processor - INFO - [queue_processor.py:143] - [OK] Task created: c133639b (video: 1aa537d4-2a27-4348-abab-12d84b67e865_cleaned_IMG_1047.MP4)
+2026-02-11 17:07:24,037 - queue_processor - INFO - [server_video_worker.py:303] - [START] Compress task: c133639b (target: 50MB)
+2026-02-11 17:07:24,066 - queue_processor - INFO - [server_video_worker.py:329] - [VIDEO] Source: 1647 frames @ 30.0fps, duration: 54.9s
+2026-02-11 17:07:24,068 - queue_processor - INFO - [server_video_worker.py:337] - [COMPRESS] Target bitrate: 100kbps for 50MB
+2026-02-11 17:07:29,546 - queue_processor - INFO - [server_video_worker.py:359] - [OK] Compressed: 1.57MB (target was 50MB)
+2026-02-11 17:07:29,551 - queue_processor - INFO - [server_video_worker.py:365] - [OK] Input removed: 1aa537d4-2a27-4348-abab-12d84b67e865_cleaned_IMG_1047.MP4
+2026-02-11 17:07:29,551 - queue_processor - INFO - [server_video_worker.py:367] - [DONE] Compress task completed: c133639b
+2026-02-11 17:10:17,804 - queue_processor - INFO - [queue_processor.py:143] - [OK] Task created: 38e5deef (video: ef2f36af_0b831ac4-7581-46cc-95bd-fda8d885dcd1.mp4)
+2026-02-11 17:10:17,806 - queue_processor - INFO - [server_video_worker.py:35] - [START] Processing task: 38e5deef
+2026-02-11 17:10:17,807 - queue_processor - INFO - [server_video_worker.py:52] - [TASK] Input: C:\Users\User\Desktop\!\media_cleaner\videos_input\ef2f36af_0b831ac4-7581-46cc-95bd-fda8d885dcd1.mp4
+2026-02-11 17:10:17,807 - queue_processor - INFO - [server_video_worker.py:53] - [TASK] Params: epsilon=0.04, strength=1.0, audio=слабый
+2026-02-11 17:10:17,832 - queue_processor - INFO - [server_video_worker.py:71] - [VIDEO] Parameters: 376 frames @ 30.0fps
+2026-02-11 17:10:17,833 - queue_processor - INFO - [server_video_worker.py:74] - [1/3] Video processing...
+2026-02-11 17:10:56,477 - queue_processor - INFO - [server_video_worker.py:91] - [OK] Processed 125 frames
+2026-02-11 17:10:56,478 - queue_processor - INFO - [server_video_worker.py:95] - [2/3] Audio processing...
+2026-02-11 17:10:56,773 - queue_processor - INFO - [server_video_worker.py:103] - [AUDIO] Masking level: слабый
+2026-02-11 17:10:56,802 - queue_processor - INFO - [server_video_worker.py:122] - [3/3] Video assembly...
+2026-02-11 17:11:01,070 - queue_processor - INFO - [server_video_worker.py:127] - [OK] Video assembled: C:\Users\User\Desktop\!\media_cleaner\videos_output\38e5deef_ef2f36af_0b831ac4-7581-46cc-95bd-fda8d885dcd1_protected.mp4
+2026-02-11 17:11:01,071 - queue_processor - INFO - [server_video_worker.py:131] - [CLEANUP] Clearing temp files...
+2026-02-11 17:11:01,168 - queue_processor - INFO - [server_video_worker.py:138] - [OK] Input removed: ef2f36af_0b831ac4-7581-46cc-95bd-fda8d885dcd1.mp4
+2026-02-11 17:11:01,169 - queue_processor - INFO - [server_video_worker.py:143] - [DONE] Task completed: 38e5deef
+2026-02-11 17:11:50,798 - queue_processor - INFO - [queue_processor.py:143] - [OK] Task created: 95d1bf6b (video: 579df63f-8b6c-49be-a40d-4c63bdf686de_IMG_9513.mp4)
+2026-02-11 17:11:50,799 - queue_processor - INFO - [server_video_worker.py:303] - [START] Compress task: 95d1bf6b (target: 50MB)
+2026-02-11 17:11:50,822 - queue_processor - INFO - [server_video_worker.py:329] - [VIDEO] Source: 1055 frames @ 30.0fps, duration: 35.2s
+2026-02-11 17:11:50,823 - queue_processor - INFO - [server_video_worker.py:337] - [COMPRESS] Target bitrate: 100kbps for 50MB
+2026-02-11 17:11:53,538 - queue_processor - INFO - [server_video_worker.py:359] - [OK] Compressed: 0.95MB (target was 50MB)
+2026-02-11 17:11:53,543 - queue_processor - INFO - [server_video_worker.py:365] - [OK] Input removed: 579df63f-8b6c-49be-a40d-4c63bdf686de_IMG_9513.mp4
+2026-02-11 17:11:53,543 - queue_processor - INFO - [server_video_worker.py:367] - [DONE] Compress task completed: 95d1bf6b
+2026-02-11 17:13:52,625 - queue_processor - INFO - [queue_processor.py:143] - [OK] Task created: ee9156e5 (video: 279cd50e-439a-4849-bdb3-00d8d38623bd_cleaned_IMG_1047.MP4)
+2026-02-11 17:13:52,626 - queue_processor - INFO - [server_video_worker.py:303] - [START] Compress task: ee9156e5 (target: 50MB)
+2026-02-11 17:13:52,653 - queue_processor - INFO - [server_video_worker.py:329] - [VIDEO] Source: 1647 frames @ 30.0fps, duration: 54.9s
+2026-02-11 17:13:52,654 - queue_processor - INFO - [server_video_worker.py:337] - [COMPRESS] Target bitrate: 100kbps for 50MB
+2026-02-11 17:13:58,263 - queue_processor - INFO - [server_video_worker.py:359] - [OK] Compressed: 1.57MB (target was 50MB)
+2026-02-11 17:13:58,267 - queue_processor - INFO - [server_video_worker.py:365] - [OK] Input removed: 279cd50e-439a-4849-bdb3-00d8d38623bd_cleaned_IMG_1047.MP4
+2026-02-11 17:13:58,267 - queue_processor - INFO - [server_video_worker.py:367] - [DONE] Compress task completed: ee9156e5
+2026-02-11 17:16:10,069 - queue_processor - INFO - [queue_processor.py:143] - [OK] Task created: 91158921 (video: 80dde0f5-2e1a-4b34-80e1-9fa61a71dbae_cleaned_IMG_1031.MP4)
+2026-02-11 17:16:10,070 - queue_processor - INFO - [server_video_worker.py:303] - [START] Compress task: 91158921 (target: 50MB)
+2026-02-11 17:16:10,098 - queue_processor - INFO - [server_video_worker.py:329] - [VIDEO] Source: 673 frames @ 30.0fps, duration: 22.4s
+2026-02-11 17:16:10,099 - queue_processor - INFO - [server_video_worker.py:337] - [COMPRESS] Target bitrate: 100kbps for 50MB
+2026-02-11 17:16:15,367 - queue_processor - INFO - [server_video_worker.py:359] - [OK] Compressed: 0.90MB (target was 50MB)
+2026-02-11 17:16:15,371 - queue_processor - INFO - [server_video_worker.py:365] - [OK] Input removed: 80dde0f5-2e1a-4b34-80e1-9fa61a71dbae_cleaned_IMG_1031.MP4
+2026-02-11 17:16:15,372 - queue_processor - INFO - [server_video_worker.py:367] - [DONE] Compress task completed: 91158921
+2026-02-11 23:16:58,657 - queue_processor - INFO - [queue_processor.py:143] - [OK] Task created: d29d1611 (video: 50f10868_IMG_1063.MP4)
+2026-02-11 23:16:58,663 - queue_processor - INFO - [server_video_worker.py:36] - [START] Processing task: d29d1611
+2026-02-11 23:16:58,664 - queue_processor - INFO - [server_video_worker.py:53] - [TASK] Input: C:\Users\User\Desktop\!\media_cleaner\videos_input\50f10868_IMG_1063.MP4
+2026-02-11 23:16:58,665 - queue_processor - INFO - [server_video_worker.py:54] - [TASK] Params: epsilon=0.12, strength=1.4, audio=слабый
+2026-02-11 23:16:58,793 - queue_processor - INFO - [server_video_worker.py:72] - [VIDEO] Parameters: 1568 frames @ 30.0fps
+2026-02-11 23:16:58,794 - queue_processor - INFO - [server_video_worker.py:75] - [1/3] Video processing...
+2026-02-11 23:18:45,108 - queue_processor - INFO - [server_video_worker.py:92] - [OK] Processed 104 frames
+2026-02-11 23:18:45,109 - queue_processor - INFO - [server_video_worker.py:96] - [2/3] Audio processing...
+2026-02-11 23:18:46,438 - queue_processor - INFO - [server_video_worker.py:104] - [AUDIO] Masking level: слабый
+2026-02-11 23:18:50,615 - queue_processor - INFO - [server_video_worker.py:123] - [3/3] Video assembly...
+2026-02-11 23:19:05,829 - queue_processor - INFO - [server_video_worker.py:128] - [OK] Video assembled: C:\Users\User\Desktop\!\media_cleaner\videos_output\d29d1611_50f10868_IMG_1063_protected.mp4
+2026-02-11 23:19:05,830 - queue_processor - INFO - [server_video_worker.py:132] - [CLEANUP] Clearing temp files...
+2026-02-11 23:19:06,154 - queue_processor - INFO - [server_video_worker.py:139] - [OK] Input removed: 50f10868_IMG_1063.MP4
+2026-02-11 23:19:06,154 - queue_processor - INFO - [server_video_worker.py:144] - [DONE] Task completed: d29d1611
+2026-02-11 23:31:08,862 - queue_processor - INFO - [queue_processor.py:143] - [OK] Task created: 55ee6450 (video: 844bce3b_IMG_1047.MP4)
+2026-02-11 23:31:08,867 - queue_processor - INFO - [server_video_worker.py:36] - [START] Processing task: 55ee6450
+2026-02-11 23:31:08,869 - queue_processor - INFO - [server_video_worker.py:53] - [TASK] Input: C:\Users\User\Desktop\!\media_cleaner\videos_input\844bce3b_IMG_1047.MP4
+2026-02-11 23:31:08,869 - queue_processor - INFO - [server_video_worker.py:54] - [TASK] Params: epsilon=0.14, strength=1.5, audio=слабый
+2026-02-11 23:31:09,088 - queue_processor - INFO - [server_video_worker.py:72] - [VIDEO] Parameters: 1647 frames @ 30.0fps
+2026-02-11 23:31:09,089 - queue_processor - INFO - [server_video_worker.py:75] - [1/3] Video processing...
+2026-02-11 23:31:43,073 - queue_processor - WARNING - [queue_processor.py:193] - Cannot cancel task 55ee6450: already processing
+2026-02-11 23:32:39,653 - queue_processor - INFO - [server_video_worker.py:92] - [OK] Processed 102 frames
+2026-02-11 23:32:39,656 - queue_processor - INFO - [server_video_worker.py:96] - [2/3] Audio processing...
+2026-02-11 23:32:43,234 - queue_processor - INFO - [server_video_worker.py:104] - [AUDIO] Masking level: слабый
+2026-02-11 23:32:43,609 - queue_processor - INFO - [server_video_worker.py:123] - [3/3] Video assembly...
+2026-02-11 23:33:07,229 - queue_processor - INFO - [server_video_worker.py:128] - [OK] Video assembled: C:\Users\User\Desktop\!\media_cleaner\videos_output\55ee6450_844bce3b_IMG_1047_protected.mp4
+2026-02-11 23:33:07,232 - queue_processor - INFO - [server_video_worker.py:132] - [CLEANUP] Clearing temp files...
+2026-02-11 23:33:07,508 - queue_processor - INFO - [server_video_worker.py:139] - [OK] Input removed: 844bce3b_IMG_1047.MP4
+2026-02-11 23:33:07,509 - queue_processor - INFO - [server_video_worker.py:144] - [DONE] Task completed: 55ee6450
+2026-02-11 23:37:18,115 - queue_processor - INFO - [queue_processor.py:143] - [OK] Task created: 071e7412 (video: 1b381221_IMG_1047.MP4)
+2026-02-11 23:37:18,120 - queue_processor - INFO - [server_video_worker.py:36] - [START] Processing task: 071e7412
+2026-02-11 23:37:18,122 - queue_processor - INFO - [server_video_worker.py:53] - [TASK] Input: C:\Users\User\Desktop\!\media_cleaner\videos_input\1b381221_IMG_1047.MP4
+2026-02-11 23:37:18,122 - queue_processor - INFO - [server_video_worker.py:54] - [TASK] Params: epsilon=0.12, strength=1.5, audio=слабый
+2026-02-11 23:37:18,146 - queue_processor - INFO - [server_video_worker.py:72] - [VIDEO] Parameters: 1647 frames @ 30.0fps
+2026-02-11 23:37:18,146 - queue_processor - INFO - [server_video_worker.py:75] - [1/3] Video processing...
+2026-02-11 23:38:00,922 - queue_processor - WARNING - [queue_processor.py:193] - Cannot cancel task 071e7412: already processing
+2026-02-11 23:39:06,515 - queue_processor - INFO - [server_video_worker.py:92] - [OK] Processed 102 frames
+2026-02-11 23:39:06,517 - queue_processor - INFO - [server_video_worker.py:96] - [2/3] Audio processing...
+2026-02-11 23:39:07,569 - queue_processor - INFO - [server_video_worker.py:104] - [AUDIO] Masking level: слабый
+2026-02-11 23:39:07,671 - queue_processor - INFO - [server_video_worker.py:123] - [3/3] Video assembly...
+2026-02-11 23:39:27,400 - queue_processor - INFO - [server_video_worker.py:128] - [OK] Video assembled: C:\Users\User\Desktop\!\media_cleaner\videos_output\071e7412_1b381221_IMG_1047_protected.mp4
+2026-02-11 23:39:27,402 - queue_processor - INFO - [server_video_worker.py:132] - [CLEANUP] Clearing temp files...
+2026-02-11 23:39:27,886 - queue_processor - INFO - [server_video_worker.py:139] - [OK] Input removed: 1b381221_IMG_1047.MP4
+2026-02-11 23:39:27,887 - queue_processor - INFO - [server_video_worker.py:144] - [DONE] Task completed: 071e7412
+2026-02-11 23:42:46,410 - queue_processor - INFO - [queue_processor.py:143] - [OK] Task created: 3e162a59 (video: a3c4e294_IMG_1047.MP4)
+2026-02-11 23:42:46,415 - queue_processor - INFO - [server_video_worker.py:36] - [START] Processing task: 3e162a59
+2026-02-11 23:42:46,416 - queue_processor - INFO - [server_video_worker.py:53] - [TASK] Input: C:\Users\User\Desktop\!\media_cleaner\videos_input\a3c4e294_IMG_1047.MP4
+2026-02-11 23:42:46,417 - queue_processor - INFO - [server_video_worker.py:54] - [TASK] Params: epsilon=0.1, strength=1.5, audio=слабый
+2026-02-11 23:42:46,437 - queue_processor - INFO - [server_video_worker.py:72] - [VIDEO] Parameters: 1647 frames @ 30.0fps
+2026-02-11 23:42:46,438 - queue_processor - INFO - [server_video_worker.py:75] - [1/3] Video processing...
+2026-02-11 23:42:51,571 - queue_processor - WARNING - [queue_processor.py:193] - Cannot cancel task 3e162a59: already processing
+2026-02-11 23:44:56,048 - queue_processor - INFO - [server_video_worker.py:92] - [OK] Processed 102 frames
+2026-02-11 23:44:56,051 - queue_processor - INFO - [server_video_worker.py:96] - [2/3] Audio processing...
+2026-02-11 23:44:56,782 - queue_processor - INFO - [server_video_worker.py:104] - [AUDIO] Masking level: слабый
+2026-02-11 23:44:56,909 - queue_processor - INFO - [server_video_worker.py:123] - [3/3] Video assembly...
+2026-02-11 23:44:58,652 - queue_processor - ERROR - [server_video_worker.py:159] - [ERROR] Processing error 3e162a59: RuntimeError: FFmpeg ошибка: ffmpeg version 2026-01-12-git-21a3e44fbe-essentials_build-www.gyan.dev Copyright (c) 2000-2026 the FFmpeg developers
+  built with gcc 15.2.0 (Rev8, Built by MSYS2 project)
+  configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-cairo --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-openal --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+  libavutil      60. 23.100 / 60. 23.100
+  libavcodec     62. 23.102 / 62. 23.102
+  libavformat    62.  8.102 / 62.  8.102
+  libavdevice    62.  2.100 / 62.  2.100
+  libavfilter    11. 10.101 / 11. 10.101
+  libswscale      9.  3.100 /  9.  3.100
+  libswresample   6.  2.100 /  6.  2.100
+Input #0, image2, from 'C:\Users\User\Desktop\!\media_cleaner\videos_input\a3c4e294_IMG_1047_temp_adv_16f\frame_%06d.png':
+  Duration: 00:00:54.90, start: 0.000000, bitrate: N/A
+  Stream #0:0: Video: png, rgb24(pc, gbr/unknown/unknown), 1080x1080, 30 fps, 30 tbr, 30 tbn
+[aist#1:0/pcm_s16le @ 00000282e67638c0] Guessed Channel Layout: mono
+Input #1, wav, from 'C:\Users\User\Desktop\!\media_cleaner\videos_temp\3e162a59_a3c4e294_IMG_1047_audio_adv.wav':
+  Duration: 00:00:54.87, bitrate: 256 kb/s
+  Stream #1:0: Audio: pcm_s16le ([1][0][0][0] / 0x0001), 16000 Hz, mono, s16, 256 kb/s
+Stream mapping:
+  Stream #0:0 -> #0:0 (png (native) -> hevc (hevc_nvenc))
+  Stream #1:0 -> #0:1 (pcm_s16le (native) -> aac (native))
+Press [q] to stop, [?] for help
+[aac @ 00000282e5f10d00] Too many bits 8192.000000 > 6144 per frame requested, clamping to max
+Output #0, mp4, to 'C:\Users\User\Desktop\!\media_cleaner\videos_output\3e162a59_a3c4e294_IMG_1047_protected.mp4':
+  Metadata:
+    encoder         : Lavf62.8.102
+  Stream #0:0: Video: hevc (Main) (hev1 / 0x31766568), yuv420p(tv, progressive), 1080x1080, q=2-31, 30 fps, 15360 tbn
+    Metadata:
+      encoder         : Lavc62.23.102 hevc_nvenc
+    Side data:
+      CPB properties: bitrate max/min/avg: 0/0/0 buffer size: 0 vbv_delay: N/A
+  Stream #0:1: Audio: aac (LC) (mp4a / 0x6134706D), 16000 Hz, mono, fltp, 96 kb/s
+    Metadata:
+      encoder         : Lavc62.23.102 aac
+frame=    7 fps=0.0 q=16.0 size=       0KiB time=00:00:00.23 bitrate=   1.5kbits/s speed=0.452x elapsed=0:00:00.51    
+[out#0/mp4 @ 00000282e5e6ee80] video:1389KiB audio:25KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.152381%
+frame=   57 fps= 54 q=18.0 Lsize=    1416KiB time=00:00:01.90 bitrate=6104.8kbits/s speed=1.79x elapsed=0:00:01.06    
+[aac @ 00000282e5f10d00] Qavg: 33695.477
+Exiting normally, received signal 15.
+
+2026-02-11 23:48:08,939 - queue_processor - INFO - [queue_processor.py:143] - [OK] Task created: b09bb3f7 (video: cfbc1ccf_IMG_1047.MP4)
+2026-02-11 23:48:08,943 - queue_processor - INFO - [server_video_worker.py:36] - [START] Processing task: b09bb3f7
+2026-02-11 23:48:08,945 - queue_processor - INFO - [server_video_worker.py:53] - [TASK] Input: C:\Users\User\Desktop\!\media_cleaner\videos_input\cfbc1ccf_IMG_1047.MP4
+2026-02-11 23:48:08,946 - queue_processor - INFO - [server_video_worker.py:54] - [TASK] Params: epsilon=0.12, strength=1.4, audio=слабый
+2026-02-11 23:48:09,002 - queue_processor - INFO - [server_video_worker.py:72] - [VIDEO] Parameters: 1647 frames @ 30.0fps
+2026-02-11 23:48:09,003 - queue_processor - INFO - [server_video_worker.py:75] - [1/3] Video processing...
+2026-02-11 23:48:09,004 - queue_processor - INFO - [server_video_worker.py:83] - [VIDEO] every_n_frames=1, total_frames=1647, frames_to_process=1647
+2026-02-11 23:57:42,727 - queue_processor - INFO - [server_video_worker.py:102] - [OK] Processed 1647 frames
+2026-02-11 23:57:42,729 - queue_processor - INFO - [server_video_worker.py:116] - [2/3] Audio processing...
+2026-02-11 23:57:43,456 - queue_processor - INFO - [server_video_worker.py:124] - [AUDIO] Masking level: слабый
+2026-02-11 23:57:48,235 - queue_processor - INFO - [server_video_worker.py:152] - [3/3] Video assembly...
+2026-02-11 23:58:17,904 - queue_processor - INFO - [server_video_worker.py:157] - [OK] Video assembled: C:\Users\User\Desktop\!\media_cleaner\videos_output\b09bb3f7_cfbc1ccf_IMG_1047_protected.mp4
+2026-02-11 23:58:17,906 - queue_processor - INFO - [server_video_worker.py:161] - [CLEANUP] Clearing temp files...
+2026-02-11 23:58:18,481 - queue_processor - INFO - [server_video_worker.py:168] - [OK] Input removed: cfbc1ccf_IMG_1047.MP4
+2026-02-11 23:58:18,482 - queue_processor - INFO - [server_video_worker.py:173] - [DONE] Task completed: b09bb3f7

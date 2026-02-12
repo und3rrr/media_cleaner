@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS Syntax Test</title>
+</head>
+<body>
+    <h1>Проверка синтаксиса JavaScript</h1>
+    <div id="result"></div>
+    
+    <script>
+        // Попытаемся загрузить script.js и проверить синтаксис
+        fetch('static/script.js')
+            .then(res => res.text())
+            .then(code => {
+                try {
+                    // Попытаемся распарсить как функцию
+                    new Function(code);
+                    document.getElementById('result').innerHTML = '<p style="color: green; font-size: 20px;">✅ Синтаксис OK! Нет ошибок в script.js</p>';
+                } catch (e) {
+                    document.getElementById('result').innerHTML = '<p style="color: red; font-size: 20px;">❌ Синтаксическая ошибка:<br>' + e.message + '</p>';
+                }
+            })
+            .catch(err => {
+                document.getElementById('result').innerHTML = '<p style="color: orange;">⚠️ Не удалось загрузить файл: ' + err + '</p>';
+            });
+    </script>
+</body>
+</html>
