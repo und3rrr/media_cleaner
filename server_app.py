@@ -244,23 +244,33 @@ async def download_result(task_id: str):
     **Returns:** Видео-файл или ошибка
     """
     task = processing_queue.get_task(task_id)
+    logger.info(f"[DOWNLOAD] task_id={task_id}, task_found={task is not None}")
     
     if not task:
+        logger.error(f"[DL-ERR] Задача не найдена: {task_id}")
         raise HTTPException(status_code=404, detail=f"Задача не найдена: {task_id}")
     
+    logger.info(f"[DOWNLOAD] Task status: {task.status}, is_completed: {task.status == TaskStatus.COMPLETED}")
+    
     if task.status != TaskStatus.COMPLETED:
+        logger.error(f"[DL-ERR] Задача не готова: stats={task.status}")
         raise HTTPException(
             status_code=400,
             detail=f"Видео ещё не готово. Статус: {task.status}"
         )
     
+    logger.info(f"[DOWNLOAD] output_video: {task.output_video}, is_set: {bool(task.output_video)}")
+    
     if not task.output_video:
+        logger.error(f"[DL-ERR] output_video не установлен для task {task_id}")
         raise HTTPException(status_code=404, detail="Выходной файл не найден")
     
     output_path = OUTPUT_FOLDER / task.output_video
+    logger.info(f"[DOWNLOAD] Проверка файла: {output_path}, exists: {output_path.exists()}")
     
     if not output_path.exists():
-        raise HTTPException(status_code=404, detail="Файл был удалён")
+        logger.error(f"[DL-ERR] Файл не найден: {output_path}")
+        raise HTTPException(status_code=404, detail=f"Файл был удалён: {output_path}")
     
     logger.info(f"📥 Скачан файл: {task.output_video} (задача {task_id})")
     

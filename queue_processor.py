@@ -157,9 +157,12 @@ class VideoProcessingQueue:
             for key, value in kwargs.items():
                 if hasattr(task, key):
                     setattr(task, key, value)
+                    if key == "output_video":
+                        logger.info(f"[QUEUE] Set output_video={value} for task {task_id}")
             self.tasks[task_id] = task
         
         self.save_tasks()
+        logger.info(f"[QUEUE] Task {task_id} saved to JSON with status={task.status}")
         return True
     
     def get_pending_tasks(self, limit: int = 1) -> List[ProcessingTask]:
