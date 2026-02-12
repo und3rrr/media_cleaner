@@ -202,6 +202,34 @@ async def get_task_status(task_id: str):
     }
 
 
+@app.get("/stats")
+async def get_stats():
+    """
+    Получить статистику сервера
+    
+    **Returns:** Информация о текущей нагрузке и статусе
+    """
+    processing_tasks = processing_queue.get_all_tasks(TaskStatus.PROCESSING)
+    pending_tasks = processing_queue.get_all_tasks(TaskStatus.PENDING)
+    completed_tasks = processing_queue.get_all_tasks(TaskStatus.COMPLETED)
+    failed_tasks = processing_queue.get_all_tasks(TaskStatus.FAILED)
+    
+    max_concurrent = SERVER_CONFIG["max_concurrent_tasks"]
+    
+    return {
+        "status": "success",
+        "processing": {
+            "count": len(processing_tasks),
+            "max": max_concurrent,
+            "percentage": (len(processing_tasks) / max_concurrent * 100) if max_concurrent > 0 else 0
+        },
+        "pending": len(pending_tasks),
+        "completed": len(completed_tasks),
+        "failed": len(failed_tasks),
+        "total": len(processing_queue.tasks)
+    }
+
+
 @app.get("/tasks")
 async def list_tasks(
     user_id: Optional[str] = Query(None),

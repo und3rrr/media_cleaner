@@ -130,6 +130,31 @@ button, input, select, textarea, [role="button"] {
     font-size: 14px;
 }
 
+.sessions-counter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(100, 200, 255, 0.1);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid rgba(100, 200, 255, 0.3);
+}
+
+.sessions-counter i {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.sessions-counter strong {
+    color: #64c8ff;
+}
+
 .status-indicator {
     width: 12px;
     height: 12px;

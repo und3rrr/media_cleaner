@@ -108,6 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
     setupButtonHandlers();
     console.log('🔧 [DEBUG] checkServerStatus...');
     checkServerStatus();
+    console.log('🔧 [DEBUG] Updating sessions counter...');
+    updateSessionsCounter();
+    // Обновлять счетчик каждые 3 секунды
+    setInterval(updateSessionsCounter, 3000);
     console.log('🔧 [DEBUG] Interface initialized successfully');
     addConsoleLog('✨ Интерфейс загружен', 'info');
 });
@@ -748,6 +752,45 @@ function updateServerStatus(isOnline) {
     } else {
         DOM.serverIndicator.className = 'status-indicator offline';
         DOM.serverText.textContent = '🔴 Сервер offline';
+    }
+}
+
+/**
+ * Обновить счетчик активных сессий обработки
+ */
+async function updateSessionsCounter() {
+    try {
+        const response = await fetch(`${API_SERVER}/stats`);
+        const data = await response.json();
+        
+        if (data.status === 'success') {
+            const processing = data.processing.count;
+            const max = data.processing.max;
+            const percentage = Math.round(data.processing.percentage);
+            
+            // Обновить HTML счетчика
+            const sessionsText = document.getElementById('sessionsText');
+            if (sessionsText) {
+                sessionsText.innerHTML = `В обработке: <strong>${processing} из ${max}</strong> видео`;
+            }
+            
+            // Изменить цвет в зависимости от нагрузки
+            const sessionsCounter = document.querySelector('.sessions-counter');
+            if (sessionsCounter) {
+                if (percentage >= 80) {
+                    sessionsCounter.style.borderColor = 'rgba(255, 100, 100, 0.5)';
+                    sessionsCounter.style.background = 'rgba(255, 100, 100, 0.1)';
+                } else if (percentage >= 50) {
+                    sessionsCounter.style.borderColor = 'rgba(255, 200, 100, 0.5)';
+                    sessionsCounter.style.background = 'rgba(255, 200, 100, 0.1)';
+                } else {
+                    sessionsCounter.style.borderColor = 'rgba(100, 200, 255, 0.3)';
+                    sessionsCounter.style.background = 'rgba(100, 200, 255, 0.1)';
+                }
+            }
+        }
+    } catch (error) {
+        console.warn('📊 Could not update sessions counter:', error);
     }
 }
 
