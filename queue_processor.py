@@ -89,14 +89,41 @@ class VideoProcessingQueue:
         self.load_tasks()
     
     def load_tasks(self) -> None:
-        """Загружает задачи из базы данных"""
+        """Загружает задачи из базы данных и очищает зависшие"""
         if self.tasks_db.exists():
             try:
                 with open(self.tasks_db, 'r', encoding='utf-8') as f:
                     data = json.load(f)
                     for task_id, task_data in data.items():
-                        self.tasks[task_id] = ProcessingTask(**task_data)
+                        task = ProcessingTask(**task_data)
+                        
+                        # Очистка зависших задач со статусом "processing"
+                        if task.status == TaskStatus.PROCESSING:
+                            logger.warning(f"[CLEANUP] Found stuck task: {task_id}")
+                            
+                            # Проверить есть ли выходной файл
+                            if task.output_video:
+                                output_path = OUTPUT_FOLDER / task.output_video
+                                if output_path.exists():
+                                    # Файл есть - задача на самом деле завершена
+                                    task.status = TaskStatus.COMPLETED
+                                    task.completed_at = task.completed_at or str(datetime.now())
+                                    logger.info(f"[CLEANUP] Marked {task_id} as COMPLETED (file exists)")
+                                else:
+                                    # Файла нет - задача не завершена
+                                    task.status = TaskStatus.FAILED
+                                    task.error_message = "Обработка прервана (зависла при перезагрузке)"
+                                    logger.warning(f"[CLEANUP] Marked {task_id} as FAILED (no output file)")
+                            else:
+                                # Нет выходного файла
+                                task.status = TaskStatus.FAILED
+                                task.error_message = "Обработка прервана (зависла при перезагрузке)"
+                                logger.warning(f"[CLEANUP] Marked {task_id} as FAILED (no output_video)")
+                        
+                        self.tasks[task_id] = task
+                
                 logger.info(f"Загружено {len(self.tasks)} задач из базы")
+                self.save_tasks()  # Сохранить очищенные задачи обратно
             except Exception as e:
                 logger.error(f"Ошибка загрузки задач: {e}")
     
@@ -107,8 +134,11 @@ class VideoProcessingQueue:
                 data = {task_id: task.to_dict() for task_id, task in self.tasks.items()}
                 with open(self.tasks_db, 'w', encoding='utf-8') as f:
                     json.dump(data, f, ensure_ascii=False, indent=2)
+                logger.info(f"[OK] Saved {len(data)} tasks to {self.tasks_db}")
         except Exception as e:
-            logger.error(f"Ошибка сохранения задач: {e}")
+            logger.error(f"[ERROR] Failed to save tasks: {type(e).__name__}: {e}", exc_info=True)
+            import traceback
+            traceback.print_exc()
     
     def create_task(self, input_video: str, 
                    epsilon: float = None,
@@ -139,7 +169,9 @@ class VideoProcessingQueue:
         with self.lock:
             self.tasks[task_id] = task
         
+        logger.info(f"[CREATE] Task {task_id} added to memory (total: {len(self.tasks)})")
         self.save_tasks()
+        logger.info(f"[CREATE] Task {task_id} created and saved")
         logger.info(f"[OK] Task created: {task_id} (video: {input_video})")
         return task_id
     

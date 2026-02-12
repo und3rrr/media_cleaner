@@ -57,7 +57,7 @@ SERVER_CONFIG = {
     
     # Лимиты
     "max_video_size_gb": 2,  # Максимальный размер видео в GB
-    "max_concurrent_tasks": 3,  # Максимум одновременных обработок
+    "max_concurrent_tasks": 10,  # Максимум одновременных обработок
     "task_timeout_hours": 24,  # Таймаут задачи в часах
     
     # Параметры видео
