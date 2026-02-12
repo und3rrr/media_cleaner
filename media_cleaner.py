@@ -775,33 +775,9 @@ def extract_audio(input_path: str, output_path: str) -> None:
 
 
 def check_gpu_encoder() -> str:
-    """Проверяет доступность GPU кодеков NVIDIA и возвращает лучший доступный."""
-    try:
-        # Проверяем доступные GPU кодеки
-        encoders_check = subprocess.run(
-            [CONFIG["ffmpeg_path"], "-codecs"],
-            stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
-        )
-        
-        output = encoders_check.stdout
-        
-        # Проверяем HEVC GPU кодек (лучше всего)
-        if "hevc_nvenc" in output:
-            logger.info("[GPU] Using encoder: HEVC NVENC (fastest)")
-            return "hevc_nvenc"
-        
-        # Проверяем H.264 GPU кодек
-        if "h264_nvenc" in output:
-            logger.info("[GPU] Using encoder: H.264 NVENC")
-            return "h264_nvenc"
-        
-        # Fallback на CPU кодек
-        logger.warning("[WARN] GPU codecs unavailable, using CPU codec (slower)")
-        return "libx264"
-    
-    except Exception as e:
-        logger.warning(f"Ошибка проверки GPU кодеков: {e}, используется CPU")
-        return "libx264"
+    """Использует CPU кодек (CUDA обычно не установлена на Linux серверах)."""
+    logger.info("[INFO] Using CPU encoder: libx264")
+    return "libx264"
 
 
 def assemble_video(temp_folder: str, audio_path: str, fps: float, output_path: str, use_gpu: bool = True) -> None:
